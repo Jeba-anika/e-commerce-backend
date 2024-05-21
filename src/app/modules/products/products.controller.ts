@@ -38,9 +38,42 @@ const getAllProducts = async (req: Request, res: Response) => {
   }
 }
 
-const getSingleProduct = (req: Request, res: Response) => {}
+const getSingleProduct = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params
+    const result = await ProductService.getSingleProduct(productId)
+    res.status(200).json({
+      success: true,
+      message: 'Product fetched successfully!',
+      data: result,
+    })
+  } catch (err: any) {
+    res.status(500).json({
+      success: false,
+      message: err.message || 'Product fetch failed!',
+      error: err,
+    })
+  }
+}
 
-const updateSingleProduct = (req: Request, res: Response) => {}
+const updateSingleProduct = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params
+    const data = req.body
+    const result = await ProductService.updateSingleProduct(productId, data)
+    res.status(200).json({
+      success: true,
+      message: 'Product updated successfully!',
+      data: result,
+    })
+  } catch (err: any) {
+    res.status(500).json({
+      success: false,
+      message: err.message || 'Product update failed!',
+      error: err,
+    })
+  }
+}
 
 const deleteProduct = (req: Request, res: Response) => {}
 

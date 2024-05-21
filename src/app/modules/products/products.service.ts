@@ -12,9 +12,18 @@ const getAllProducts = async () => {
   return result
 }
 
-const getSingleProduct = (req: Request, res: Response) => {}
+const getSingleProduct = async (productId: string) => {
+  const result = await Product.findOne({ _id: productId })
+  return result
+}
 
-const updateSingleProduct = (req: Request, res: Response) => {}
+const updateSingleProduct = async (
+  productId: string,
+  data: Partial<IProduct>,
+) => {
+  const result = await Product.updateOne({ _id: productId }, { $set: data })
+  return result
+}
 
 const deleteProduct = (req: Request, res: Response) => {}
 
