@@ -1,4 +1,3 @@
-import { Request, Response } from 'express'
 import { IProduct } from './products.interface'
 import { Product } from './products.model'
 
@@ -7,8 +6,16 @@ const createNewProduct = async (product: IProduct) => {
   return data
 }
 
-const getAllProducts = async () => {
-  const result = await Product.find({})
+const getAllProducts = async (searchTerm: string) => {
+  let result
+  if (searchTerm) {
+    result = await Product.find({
+      name: { $regex: new RegExp(searchTerm, 'i') },
+    })
+  } else {
+    result = await Product.find({})
+  }
+
   return result
 }
 
@@ -21,11 +28,21 @@ const updateSingleProduct = async (
   productId: string,
   data: Partial<IProduct>,
 ) => {
-  const result = await Product.updateOne({ _id: productId }, { $set: data })
+  const result = await Product.findOneAndUpdate(
+    { _id: productId },
+    { $set: data },
+    { new: true },
+  )
   return result
 }
 
-const deleteProduct = (req: Request, res: Response) => {}
+const deleteProduct = async (productId: string) => {
+  const result = await Product.findOneAndDelete(
+    { _id: productId },
+    { new: true },
+  )
+  return result
+}
 
 export const ProductService = {
   createNewProduct,

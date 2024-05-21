@@ -23,7 +23,8 @@ const createNewProduct = async (req: Request, res: Response) => {
 
 const getAllProducts = async (req: Request, res: Response) => {
   try {
-    const result = await ProductService.getAllProducts()
+    const { searchTerm } = req.query
+    const result = await ProductService.getAllProducts(searchTerm)
     res.status(200).json({
       success: true,
       message: 'Product fetched  successfully!',
@@ -75,7 +76,24 @@ const updateSingleProduct = async (req: Request, res: Response) => {
   }
 }
 
-const deleteProduct = (req: Request, res: Response) => {}
+const deleteProduct = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params
+
+    const result = await ProductService.deleteProduct(productId)
+    res.status(200).json({
+      success: true,
+      message: 'Product deleted  successfully!',
+      data: result,
+    })
+  } catch (err: any) {
+    res.status(500).json({
+      success: false,
+      message: err.message || 'Product deletion failed!',
+      error: err,
+    })
+  }
+}
 
 export const ProductController = {
   createNewProduct,
