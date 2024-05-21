@@ -6,7 +6,7 @@ const createNewProduct = async (product: IProduct) => {
   return data
 }
 
-const getAllProducts = async (searchTerm: string) => {
+const getAllProducts = async (searchTerm: string | undefined) => {
   let result
   if (searchTerm) {
     result = await Product.find({
