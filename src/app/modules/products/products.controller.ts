@@ -21,7 +21,22 @@ const createNewProduct = async (req: Request, res: Response) => {
   }
 }
 
-const getAllProducts = (req: Request, res: Response) => {}
+const getAllProducts = async (req: Request, res: Response) => {
+  try {
+    const result = await ProductService.getAllProducts()
+    res.status(200).json({
+      success: true,
+      message: 'Product fetched  successfully!',
+      data: result,
+    })
+  } catch (err: any) {
+    res.status(500).json({
+      success: false,
+      message: err.message || 'Product fetch failed!',
+      error: err,
+    })
+  }
+}
 
 const getSingleProduct = (req: Request, res: Response) => {}
 

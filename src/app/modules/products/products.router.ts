@@ -7,6 +7,6 @@ router.post('/', ProductController.createNewProduct)
 router.get('/:productId')
 router.put('/:productId')
 router.delete('/:productId')
-router.get('/')
+router.get('/', ProductController.getAllProducts)
 
 export const ProductRoutes = router

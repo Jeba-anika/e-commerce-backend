@@ -7,7 +7,10 @@ const createNewProduct = async (product: IProduct) => {
   return data
 }
 
-const getAllProducts = (req: Request, res: Response) => {}
+const getAllProducts = async () => {
+  const result = await Product.find({})
+  return result
+}
 
 const getSingleProduct = (req: Request, res: Response) => {}
 
