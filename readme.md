@@ -29,11 +29,6 @@
 - Route: https://e-commerce-backend-node-xi.vercel.app/api/products/664cd0ab8d951b3af28d635b (Single GET)
 - Route: https://e-commerce-backend-node-xi.vercel.app/api/products/664cd0ab8d951b3af28d635b (PUT)
 - Route: https://e-commerce-backend-node-xi.vercel.app/api/products/664cd0ab8d951b3af28d635b (DELETE)
-- Route: https://e-commerce-backend-node-xi.vercel.app/api/products/addToWishlist/64b4e360beb6f1e2b71f9386 (POST)
-- Route: https://book-catalog-backend-ruby.vercel.app/api/products/addToCurrentlyReading/64b4e360beb6f1e2b71f9386 (POST)
-- Route: https://book-catalog-backend-ruby.vercel.app/api/products/addToPlanToReadSoon/64b4e360beb6f1e2b71f9386 (POST)
-- Route: https://book-catalog-backend-ruby.vercel.app/api/products/finishedReading/64b4e360beb6f1e2b71f9386 (POST)
-- Route: https://book-catalog-backend-ruby.vercel.app/api/products/addReview/64b4e360beb6f1e2b71f9386 (POST)
 
 ### Orders
 
