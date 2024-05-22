@@ -23,9 +23,7 @@ OrderSchema.pre('save', async function (next) {
       throw new Error('The product is not in stock!')
     }
     if (isProductExists.inventory.quantity < quantity) {
-      throw new Error(
-        `Not enough stock! Available product quantity: ${isProductExists.inventory.quantity}`,
-      )
+      throw new Error('Insufficient quantity available in inventory')
     }
   }
   if (!isProductExists) {
