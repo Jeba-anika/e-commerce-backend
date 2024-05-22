@@ -45,7 +45,9 @@ const deleteProduct = async (productId: string) => {
     { _id: productId },
     { new: true },
   )
-  return result
+  if (result) {
+    return null
+  }
 }
 
 export const ProductService = {
