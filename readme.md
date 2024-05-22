@@ -1,5 +1,19 @@
 ### Live Link: https://e-commerce-backend-node-xi.vercel.app/
 
+### To run the application locally: clone this repository,run the command:
+
+```
+npm install
+```
+
+Then run the command
+
+```
+npm run start:dev
+```
+
+The application will start at port 3000. To run the routes locally just replace the live link with : http://localhost:3000/
+
 ### Application Routes:
 
 #### Products
