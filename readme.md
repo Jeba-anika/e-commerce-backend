@@ -18,7 +18,7 @@ The application will start at port 3000. To run the routes locally just replace 
 
 #### Products
 
-- Route: https://book-catalog-backend-ruby.vercel.app/api/products (POST)
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/products (POST)
 
 ```sample json:
 {
