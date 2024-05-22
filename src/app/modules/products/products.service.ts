@@ -10,7 +10,11 @@ const getAllProducts = async (searchTerm: string | undefined) => {
   let result
   if (searchTerm) {
     result = await Product.find({
-      name: { $regex: new RegExp(searchTerm, 'i') },
+      $or: [
+        { name: { $regex: new RegExp(searchTerm, 'i') } },
+        { category: { $regex: new RegExp(searchTerm, 'i') } },
+        { description: { $regex: new RegExp(searchTerm, 'i') } },
+      ],
     })
   } else {
     result = await Product.find({})
