@@ -1,0 +1,52 @@
+### Live Link: https://e-commerce-backend-node-xi.vercel.app/
+
+### Application Routes:
+
+#### Products
+
+- Route: https://book-catalog-backend-ruby.vercel.app/api/products (POST)
+
+```sample json:
+{
+  name: "Smartphone X200",
+  description: "A high-end smartphone with a 6.5-inch display and advanced camera system.",
+  category: "Electronics",
+  price: 1000,
+  variants: [
+    { type: "Color", value: "Black" },
+    { type: "Storage", value: "128GB" }
+  ],
+  tags: ["smartphone", "electronics", "high-end", "new"],
+  inventory: {
+    quantity: 50,
+    inStock: true
+  }
+}
+```
+
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/products (GET)
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/products?searchTerm=smartphone (GET filtered data)
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/products/664cd0ab8d951b3af28d635b (Single GET)
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/products/664cd0ab8d951b3af28d635b (PUT)
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/products/664cd0ab8d951b3af28d635b (DELETE)
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/products/addToWishlist/64b4e360beb6f1e2b71f9386 (POST)
+- Route: https://book-catalog-backend-ruby.vercel.app/api/products/addToCurrentlyReading/64b4e360beb6f1e2b71f9386 (POST)
+- Route: https://book-catalog-backend-ruby.vercel.app/api/products/addToPlanToReadSoon/64b4e360beb6f1e2b71f9386 (POST)
+- Route: https://book-catalog-backend-ruby.vercel.app/api/products/finishedReading/64b4e360beb6f1e2b71f9386 (POST)
+- Route: https://book-catalog-backend-ruby.vercel.app/api/products/addReview/64b4e360beb6f1e2b71f9386 (POST)
+
+### Orders
+
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/orders(POST)
+
+```sample json:
+{
+    "email": "abc@gmail.com",
+    "productId": "664ce67ce5cb22926085bcba",
+    "price": 1200,
+    "quantity": 20
+}
+```
+
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/orders (GET)
+- Route: https://e-commerce-backend-node-xi.vercel.app/api/orders?email=abc@gmail.com (GET filtered data)

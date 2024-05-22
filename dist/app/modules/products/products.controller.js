@@ -71,7 +71,8 @@ const updateSingleProduct = (req, res) => __awaiter(void 0, void 0, void 0, func
     try {
         const { productId } = req.params;
         const data = req.body;
-        const result = yield products_service_1.ProductService.updateSingleProduct(productId, data);
+        const validatedData = products_validation_1.ProductValidationSchema.parse(data);
+        const result = yield products_service_1.ProductService.updateSingleProduct(productId, validatedData);
         res.status(200).json({
             success: true,
             message: 'Product updated successfully!',
