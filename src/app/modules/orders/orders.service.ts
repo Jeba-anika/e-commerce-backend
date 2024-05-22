@@ -6,7 +6,15 @@ const createOrder = async (order: IOrder) => {
   return result
 }
 
-const getAllOrders = async () => {}
+const getAllOrders = async (email: string) => {
+  let result
+  if (email) {
+    result = await Order.find({ email })
+  } else {
+    result = await Order.find({})
+  }
+  return result
+}
 
 export const OrderService = {
   createOrder,

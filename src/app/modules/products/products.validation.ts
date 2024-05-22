@@ -5,7 +5,7 @@ const ProductVariantSchema = z.object({
   value: z.string(),
 })
 const ProductInventorySchema = z.object({
-  quantity: z.number(),
+  quantity: z.number().min(0),
   inStock: z.boolean(),
 })
 export const ProductValidationSchema = z.object({

@@ -14,7 +14,11 @@ const VariantSchema = new Schema<IProductVariant>({
 })
 
 const InventorySchema = new Schema<IProductInventory>({
-  quantity: { type: Number, required: [true, 'Product quantity is required!'] },
+  quantity: {
+    type: Number,
+    required: [true, 'Product quantity is required!'],
+    min: [0, 'Quantity can not be less than 0!'],
+  },
   inStock: { type: Boolean, required: [true, 'Product inStock is required!'] },
 })
 
